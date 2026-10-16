@@ -1,0 +1,107 @@
+/*IT 3203 Milestone #1 Stylesheet*/
+
+/* 1. ELEMENT SELECTORS (Font settings, coloring, margins/paddings) */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222222;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #003366;
+}
+
+/* Table styling with borders and padding */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #e6eef4;
+}
+
+/* 2. ID SELECTORS (Header and Footer sections) */
+#site-header {
+    background-color: #003366;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #f0b323; /* KSU Gold accent border */
+}
+
+#site-header h1 {
+    color: #ffffff;
+    margin: 0 0 10px 0;
+}
+
+#site-footer {
+    background-color: #222222;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+#site-footer a {
+    color: #f0b323;
+}
+
+/* 3. CLASS SELECTORS & FLEXBOX LAYOUT */
+/* Flexbox navigation menu */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Required hover effect on links */
+.nav-menu a:hover,
+.content-box a:hover {
+    background-color: #f0b323;
+    color: #003366;
+    border-color: #ffffff;
+}
+
+/* Flexbox main page layout container */
+.page-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Main content box with border, padding, and margin */
+.content-box {
+    background-color: #ffffff;
+    max-width: 900px;
+    width: 100%;
+    padding: 30px;
+    margin: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+}
