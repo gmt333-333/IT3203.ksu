@@ -1,12 +1,69 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>George Miley - IT3203</title>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Browsers: Evolution & Architecture | Home</title>
+    <!--Link to the single shared CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-    <p>This is the homepage of my site.</p>
+    <!-- Main Site Header and Consistent Navigation Menu -->
+    <header id="site-header">
+        <h1>The Evolution and Architecture of Web Browsers</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History &amp; Browser Wars</a></li>
+                <li><a href="architecture.html">Modern Architecture</a></li>
+                <li><a href="concepts.html">Key Concepts</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <p>Student Name: George Miley<br>Assignment: Assignment 0<br>Class: IT3203<br>Section: W02<br>Semester: Fall</p>
+    <!-- Flexbox Page Layout Container -->
+    <div class="page-container">
+        <!-- Main Content Area -->
+        <main class="content-box">
+            <h2>Abstract &amp; Overview</h2>
+            <p>
+                A web browser is the fundamental client application that retrieves, parses, and renders 
+                information resources on the World Wide Web. From Sir Tim Berners-Lee's first browser in 1990 
+                to modern multi-process engines like Chromium, browsers have evolved from static document viewers 
+                into full-scale application operating environments.
+            </p>
+
+            <h3>Key Terms Covered in This Project</h3>
+            <ul>
+                <li>Hypertext Transfer Protocol (HTTP/HTTPS)</li>
+                <li>Document Object Model (DOM)</li>
+                <li>Rendering Engine (Blink, WebKit, Gecko)</li>
+                <li>JavaScript Engine (V8)</li>
+                <li>Process Sandboxing</li>
+            </ul>
+
+            <h3>Table of Contents</h3>
+            <ol>
+                <li><a href="history.html">History of Web Browsers &amp; The Browser Wars</a></li>
+                <li><a href="architecture.html">Modern Browser Architecture &amp; Security</a></li>
+                <li><a href="concepts.html">5–7 Core Web Browser Concepts</a></li>
+                <li><a href="references.html">References &amp; Learning Resources</a></li>
+                <li><a href="about.html">About the Author &amp; Project</a></li>
+            </ol>
+        </main>
+    </div>
+
+    <!-- Required Class Project Footer -->
+    <footer id="site-footer">
+        <p>
+            This website is a class project for 
+            <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203 Intro to Web Development</a> 
+            at Kennesaw State University.
+        </p>
+    </footer>
+
 </body>
 </html>
