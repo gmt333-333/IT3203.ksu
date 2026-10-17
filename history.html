@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Browsers | History &amp; Browser Wars</title>
+    <title>Web Architecture | Foundations &amp; Web Types</title>
     <!-- Link to the single shared CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,12 +11,12 @@
 
     <!-- Consistent Main Menu across all 6 pages -->
     <header id="site-header">
-        <h1>The Evolution and Architecture of Web Browsers</h1>
+        <h1>Browsers, Servers, and Web Architecture</h1>
         <nav>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="history.html">History &amp; Browser Wars</a></li>
-                <li><a href="architecture.html">Modern Architecture</a></li>
+                <li><a href="history.html">Foundations &amp; Web Types</a></li>
+                <li><a href="architecture.html">Request Architecture</a></li>
                 <li><a href="concepts.html">Key Concepts</a></li>
                 <li><a href="references.html">References</a></li>
                 <li><a href="about.html">About</a></li>
@@ -27,69 +27,78 @@
     <!-- Flexbox Page Container -->
     <div class="page-container">
         <main class="content-box">
-            <h2>History of Web Browsers &amp; The Browser Wars</h2>
+            <h2>Foundations of the Web: Static vs. Dynamic Systems</h2>
             <p>
-                The history of the web browser began in 1990 when Sir Tim Berners-Lee developed 
-                <strong>WorldWideWeb</strong> (later renamed Nexus), the first software client capable of viewing 
-                hypertext documents over the Internet. In 1993, NCSA released <strong>Mosaic</strong>, which 
-                popularized the web by displaying inline images alongside text.
+                Back in 1989, Tim Berners-Lee, the inventor of the Web, spoke of the three pillars on which the 
+                World Wide Web stands: the Uniform Resource Locator (URL) to keep track of web documents, the 
+                Hypertext Transfer Protocol (HTTP) to find and transfer documents, and Hypertext Markup Language 
+                (HTML) to format documents with embedded hyperlinks. Both simple static websites and complex 
+                dynamic websites provide for these three foundational pillars so that browsers and servers can 
+                communicate effectively. Both protect the integrity of data delivery over the Internet by relying 
+                on underlying network protocols. These similarities are not surprising because all web applications 
+                must fall within the broader communication standards expressed in client-server architecture.
             </p>
 
-            <h3>The First and Second Browser Wars</h3>
+            <h3>Points of Divergence Between Static and Dynamic Web</h3>
             <p>
-                During the mid-1990s, Netscape Navigator dominated the market until Microsoft bundled 
-                Internet Explorer with Windows 95, sparking the First Browser War. By the mid-2000s, 
-                the Second Browser War emerged as Mozilla Firefox, Apple Safari, and Google Chrome 
-                challenged Internet Explorer with faster JavaScript engines and strict adherence to W3C web standards.
+                However, the points of divergence between static and dynamic web systems are much more striking. 
+                A simple static website is famously straightforward, consisting primarily of pre-written HTML and 
+                CSS files with limited client scripting. The pages are authored at design time so that simple, small, 
+                and fast delivery is possible, and thus static architecture has remained relevant for personal and 
+                small business informational sites. By contrast, a dynamic website is much more complex and detailed 
+                in its provisions, integrating client-side CSS and JavaScript with server-side programming languages 
+                such as PHP, Java, .NET, and Python. In other words, the extent of the processing capability reflects 
+                their different roles. Dynamic web systems deal with quotidian matters which touch the lives of users 
+                most immediately—everything from e-commerce and web search engines to e-learning and social 
+                networking—and so their pages tend to be comprehensive and assembled on the fly at run time from 
+                databases, XML/JSON files, and executable programs.
             </p>
 
             <!-- Required HTML Table Element -->
-            <h3>Timeline of Major Web Browsers</h3>
+            <h3>Comparison of Simple/Static vs. Dynamic Web Architecture</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Browser Name</th>
-                        <th>Release Year</th>
-                        <th>Developer / Organization</th>
-                        <th>Historical Significance</th>
+                        <th>Feature</th>
+                        <th>Simple / Static Web</th>
+                        <th>Dynamic Web</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>WorldWideWeb (Nexus)</td>
-                        <td>1990</td>
-                        <td>Tim Berners-Lee (CERN)</td>
-                        <td>First web browser and WYSIWYG HTML editor</td>
+                        <td>Overview</td>
+                        <td>Document-based (HTML files) with limited client scripting</td>
+                        <td>Advanced processing utilized across multiple client and server levels</td>
                     </tr>
                     <tr>
-                        <td>NCSA Mosaic</td>
-                        <td>1993</td>
-                        <td>NCSA (Marc Andreessen &amp; Eric Bina)</td>
-                        <td>First popular graphical browser with inline images</td>
+                        <td>Technologies</td>
+                        <td>Client-side: HTML, CSS</td>
+                        <td>Client-side: CSS, JavaScript; Server-side: PHP, Java, .NET, Python</td>
                     </tr>
                     <tr>
-                        <td>Netscape Navigator</td>
-                        <td>1994</td>
-                        <td>Netscape Communications</td>
-                        <td>Introduced JavaScript and SSL encryption</td>
+                        <td>Advantages</td>
+                        <td>Simple, small, and fast</td>
+                        <td>Functional and versatile</td>
                     </tr>
                     <tr>
-                        <td>Internet Explorer</td>
-                        <td>1995</td>
-                        <td>Microsoft</td>
-                        <td>Won the First Browser War via Windows OS bundling</td>
+                        <td>Web Page Construction</td>
+                        <td>Authored at design time</td>
+                        <td>Assembled at run time (on the fly)</td>
                     </tr>
                     <tr>
-                        <td>Mozilla Firefox</td>
-                        <td>2004</td>
-                        <td>Mozilla Foundation</td>
-                        <td>Revived open-source competition and web standards</td>
+                        <td>Content Source</td>
+                        <td>Single source: HTML file</td>
+                        <td>Multiple sources: HTML, XML/JSON, databases, and executable programs</td>
                     </tr>
                     <tr>
-                        <td>Google Chrome</td>
-                        <td>2008</td>
-                        <td>Google</td>
-                        <td>Pioneered multi-process sandboxing and the V8 engine</td>
+                        <td>Interaction Mode</td>
+                        <td>Click and read</td>
+                        <td>Rich interaction: type, choose, drag and drop, expand, draw, listen, speak</td>
+                    </tr>
+                    <tr>
+                        <td>Common Usage</td>
+                        <td>Personal and small business information publishing</td>
+                        <td>E-commerce, search engines, content publishing, e-learning, intranets</td>
                     </tr>
                 </tbody>
             </table>
