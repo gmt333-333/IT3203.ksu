@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Browsers | Key Concepts</title>
+    <title>Web Architecture | Key Concepts</title>
     <!-- Link to the single shared CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,12 +11,12 @@
 
     <!-- Consistent Main Menu -->
     <header id="site-header">
-        <h1>The Evolution and Architecture of Web Browsers</h1>
+        <h1>Browsers, Servers, and Web Architecture</h1>
         <nav>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="history.html">History &amp; Browser Wars</a></li>
-                <li><a href="architecture.html">Modern Architecture</a></li>
+                <li><a href="history.html">Foundations &amp; Web Types</a></li>
+                <li><a href="architecture.html">Request Architecture</a></li>
                 <li><a href="concepts.html">Key Concepts</a></li>
                 <li><a href="references.html">References</a></li>
                 <li><a href="about.html">About</a></li>
@@ -26,37 +26,67 @@
 
     <div class="page-container">
         <main class="content-box">
-            <h2>Core Web Browser Concepts</h2>
-            <p>Below are six essential technical concepts that explain how web browsers retrieve, process, and secure web content.</p>
-
-            <h3>1. Document Object Model (DOM)</h3>
+            <h2>Core Web Networking &amp; Browser Concepts</h2>
             <p>
-                When a browser downloads an HTML file, it parses the markup tags into a hierarchical tree structure in memory called the DOM. JavaScript and CSS interact with the DOM to dynamically style and update the page.
+                Gaining insight into the environment in which a web application runs requires examining six 
+                foundational concepts that govern how computers connect, locate resources, and display web pages.
             </p>
 
-            <h3>2. Rendering Engine (Blink, WebKit, Gecko)</h3>
+            <h3>1. Computer Networks, Routers, and TCP/IP</h3>
             <p>
-                The rendering engine (or layout engine) transforms HTML and CSS rules into visual pixels on the user's screen. Chrome and Edge use Blink, Apple Safari uses WebKit, and Mozilla Firefox uses Gecko.
+                For two computers to exchange information across a network, they require both a physical or wireless 
+                link and a commonly understood protocol. On the Internet, the Transmission Control Protocol / Internet 
+                Protocol (TCP/IP) enables computers to exchange data packets and control acknowledgements so that 
+                information is transmitted reliably. Between a home computer and a web server, specialist computing 
+                devices called routers act like network traffic directors, handing data from one router to the next 
+                across commercial, educational, and government backbone networks until it reaches its destination.
             </p>
 
-            <h3>3. JavaScript Engine &amp; JIT Compilation</h3>
+            <h3>2. IP Addresses and the Domain Name System (DNS)</h3>
             <p>
-                Browsers include a dedicated engine (such as Google's V8 or Mozilla's SpiderMonkey) that uses Just-In-Time (JIT) compilation to convert JavaScript into fast machine code on the client side.
+                Every device connected directly to the Internet requires a unique four-byte numerical identifier 
+                known as an Internet Protocol (IP) address, written in dotted decimal notation. Because numerical 
+                addresses are difficult for people to memorize, the Domain Name System (DNS) serves as a hierarchical, 
+                decentralized naming system that translates human-friendly domain names into numerical IP addresses, 
+                starting from root nameservers.
             </p>
 
-            <h3>4. HTTP / HTTPS Protocols</h3>
+            <h3>3. Domain Hierarchy and Top-Level Domains (TLDs)</h3>
             <p>
-                Hypertext Transfer Protocol Secure (HTTPS) governs how the browser requests resources from web servers and encrypts communication using TLS to protect user data in transit.
+                A domain name is structured to tell users the general purpose of the service behind the address. 
+                While generic Top-Level Domains (TLDs) such as <code>.com</code>, <code>.org</code>, and 
+                <code>.net</code> do not enforce strict eligibility criteria, specialized TLDs maintain stricter 
+                policies: local TLDs like <code>.us</code> or <code>.fr</code> indicate a specific country or 
+                language, <code>.gov</code> is restricted to government departments, and <code>.edu</code> is 
+                reserved exclusively for educational and academic institutions.
             </p>
 
-            <h3>5. Multi-Process Sandboxing</h3>
+            <h3>4. Uniform Resource Locators (URLs) and Hyperlinks</h3>
             <p>
-                Modern browsers isolate each open tab and extension into separate operating system processes with restricted permissions ("sandboxes"). If one web page crashes or runs malicious code, it cannot crash the whole browser or access local computer files.
+                A Uniform Resource Locator (URL) functions much like a postal mail address for the Web: the scheme 
+                (such as <code>https</code>) represents the postal service protocol, the domain name identifies the 
+                city or server location, the port acts like a zip code, the path specifies the building or file on 
+                the server, and an anchor points to a specific section inside a document. Embedded hyperlinks tie 
+                these URLs together, allowing users to navigate between pages and enabling search engines to crawl 
+                and index the Web.
             </p>
 
-            <h3>6. Client-Side Storage &amp; Caching</h3>
+            <h3>5. Hypertext Transfer Protocol (HTTP &amp; HTTPS)</h3>
             <p>
-                To improve performance and remember user sessions, browsers store data locally on the client device using HTTP cookies, the Web Storage API (localStorage and sessionStorage), and browser caches.
+                Sitting on top of TCP/IP, HTTP is the human-readable application protocol that browsers and web 
+                servers use to talk to one another. Browsers use HTTP verbs such as <code>GET</code> to request a 
+                web page and <code>POST</code> to submit form data for processing, while the protocol also supports 
+                caching, filtering, load balancing, authentication, and logging. On the modern Web, servers rely on 
+                HTTPS, the secure version of HTTP that protects data in transit from interception.
+            </p>
+
+            <h3>6. Hypertext Markup Language (HTML) and Rendering</h3>
+            <p>
+                Inside the payload of an HTTP response sits HTML, a text-based markup language that uses nested 
+                angle-bracket tags and attributes (such as <code>src</code>, <code>height</code>, and 
+                <code>width</code> for images) to describe the structure of a document. When the browser receives 
+                an HTML file, it reads the markup instructions and converts the description into a visual screen 
+                display through a process called rendering.
             </p>
         </main>
     </div>
