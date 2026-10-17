@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Browsers | Modern Architecture</title>
+    <title>Web Architecture | Request Architecture</title>
     <!-- Link to the single shared CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,12 +11,12 @@
 
     <!-- Consistent Main Menu -->
     <header id="site-header">
-        <h1>The Evolution and Architecture of Web Browsers</h1>
+        <h1>Browsers, Servers, and Web Architecture</h1>
         <nav>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="history.html">History &amp; Browser Wars</a></li>
-                <li><a href="architecture.html">Modern Architecture</a></li>
+                <li><a href="history.html">Foundations &amp; Web Types</a></li>
+                <li><a href="architecture.html">Request Architecture</a></li>
                 <li><a href="concepts.html">Key Concepts</a></li>
                 <li><a href="references.html">References</a></li>
                 <li><a href="about.html">About</a></li>
@@ -26,31 +26,56 @@
 
     <div class="page-container">
         <main class="content-box">
-            <h2>Modern Web Browser Architecture</h2>
+            <h2>Client-Server Architecture &amp; Request Cycles</h2>
             <p>
-                Modern web browsers operate like mini-operating systems. In a client-server web architecture, 
-                the browser acts as the client software that sends HTTP requests to a web server and renders 
-                the returned HTML, CSS, and JavaScript files into an interactive visual interface.
+                Client-server architecture is a distributed application structure that partitions tasks and workloads 
+                between providers of a resource or service, called servers, and service requesters, called clients. 
+                In this environment, servers host resources and provide services, while client browsers act as 
+                consumers that request contents and services from the server. Both static and dynamic web systems 
+                begin their communication cycle in the same way: the browser determines the target server name from 
+                the web address and sends an HTTP GET request over the network.
             </p>
 
             <!-- Required HTML Image Element -->
-            <h3>Client-Server Request &amp; Rendering Flow</h3>
+            <h3>Client-Server Communication Model</h3>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Client-server-model.svg/640px-Client-server-model.svg.png" 
-                 alt="Diagram of Client-Server Architecture over the Internet" 
+                 alt="Diagram illustrating requests and responses between a client and a server" 
                  height="240">
             <p>
-                <em>Figure 1: Clients (web browsers) communicate with web servers over the Internet using HTTP/HTTPS protocols.</em>
+                <em>Figure 1: Requests and responses serve as the communication messages sent between clients and servers.</em>
             </p>
 
-            <h3>Core Subsystem Components</h3>
-            <ul>
-                <li><strong>User Interface (UI):</strong> The address bar, back/forward buttons, bookmark menu, and tab bar.</li>
-                <li><strong>Browser Engine:</strong> Coordinates actions between the User Interface and the Rendering Engine.</li>
-                <li><strong>Rendering Engine:</strong> Parses HTML and CSS to build the Document Object Model (DOM) tree and paint pixels to the screen (e.g., Blink, WebKit, Gecko).</li>
-                <li><strong>Networking Layer:</strong> Handles HTTP/HTTPS requests, DNS lookups, and caching.</li>
-                <li><strong>JavaScript Interpreter:</strong> Compiles and executes client-side JavaScript code (e.g., Chrome's V8 engine).</li>
-                <li><strong>Data Persistence:</strong> Manages local storage, cookies, IndexedDB, and session data.</li>
-            </ul>
+            <h3>Contrasting the Static and Dynamic Request Cycles</h3>
+            <p>
+                Even greater differences are apparent in how the server fulfills requests under the two architectures. 
+                In regard to a static website, this procedure is intentionally direct: when the web server receives 
+                an HTTP GET request, it locates the root folder of the website on its hard drive, reads the requested 
+                HTML file from the disk, and sends the file contents back inside the HTTP response. Whenever website 
+                owners want to update the information, they upload a replacement file. This system favors simplicity 
+                and speed when content does not change very often.
+            </p>
+            <p>
+                By contrast, the dynamic request cycle is decidedly more accessible to frequent data changes. When 
+                the web server recognizes a dynamic file extension—such as an ASP.NET file—it calls the appropriate 
+                web application rather than returning the file directly. The web application reads the file, runs 
+                embedded programming instructions to load data from a database, and dynamically generates regular 
+                HTML to return to the web server, which then forwards the HTML payload to the browser.
+            </p>
+
+            <h3>Strengths and Weaknesses of Both Approaches</h3>
+            <p>
+                Although the dynamic request process clearly allows richer functionality and real-time updates, this 
+                increased capability entails advantages and disadvantages. The strengths are that it makes the 
+                website far more responsive to changing user data—such as updating a webmail inbox when an email is 
+                deleted—without manually writing new HTML files on the hard drive. On the negative side, dynamic 
+                architectures require three-tier server layers, database maintenance, and greater processing overhead, 
+                which can increase system complexity compared to static hosting. Generally speaking, while both static 
+                and dynamic cycles deliver standard HTML that the browser renders identically, they reflect strong 
+                contrasts in server-side processing: simplicity and speed are the hallmarks of the static cycle, 
+                while versatility and real-time data assembly are highlighted in the dynamic process. Both possess 
+                strengths and weaknesses, but together they give evidence of how web architecture balances stability 
+                with dynamic interaction.
+            </p>
         </main>
     </div>
 
