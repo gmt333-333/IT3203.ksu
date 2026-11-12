@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Architecture | Self-Assessment Quiz</title>
+    <!-- Linking our single shared CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Consistent Header and Updated Navigation Menu across all 7 pages -->
+    <header id="site-header">
+        <h1>Browsers, Servers, and Web Architecture</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">Foundations &amp; Web Types</a></li>
+                <li><a href="architecture.html">Request Architecture</a></li>
+                <li><a href="concepts.html">Key Concepts</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Flexbox Content Container -->
+    <div class="page-container">
+        <main class="content-box">
+            <h2>Self-Assessment Quiz: Web Architecture &amp; Protocols</h2>
+            <p>
+                Static content delivery and client-side interactivity stand as foundational capabilities of modern 
+                web development, each providing the framework and limits of user engagement. While reading 
+                informational pages establishes theoretical familiarity with networking protocols, active self-assessment 
+                reinforces how each concept reflects the technical needs it was designed to meet. By contrast with 
+                static reading, this dynamic frontend quiz allows you to test your comprehension of Uniform Resource 
+                Locators (URLs), the Hypertext Transfer Protocol (HTTP), Domain Name System (DNS) addressing, and 
+                client-server request cycles.
+            </p>
+            <p>
+                You are allotted <strong>10 minutes</strong> to complete all ten questions. Generally speaking, 
+                achieving a threshold of 70% (7 out of 10 points) is required to pass.
+            </p>
+
+            <!-- Live 10-Minute Quiz Timer Banner -->
+            <div id="timer-banner" class="timer-box">
+                <span><strong>Time Limit:</strong> 10 Minutes</span>
+                <span><strong>Time Remaining:</strong> <span id="time-display">10:00</span></span>
+            </div>
+
+            <!-- Results Container (Displayed immediately after submission at the top of the quiz) -->
+            <section id="quiz-results" class="results-panel hidden" aria-live="polite">
+                <h3>Assessment Results &amp; Diagnostic Breakdown</h3>
+                <div id="overall-summary" class="summary-banner"></div>
+                <div id="question-breakdown" class="breakdown-list"></div>
+            </section>
+
+            <!-- Self-Assessment Quiz Form -->
+            <form id="architecture-quiz" novalidate>
+
+                <!-- QUESTION 1: Fill-in-the-blank #1 -->
+                <fieldset class="question-card" id="q1-card">
+                    <legend>Question 1 (Fill in the Blank — 1 Point)</legend>
+                    <p class="question-prompt">
+                        Because numeric IPv4 addresses are not very memorable for quotidian browsing, the Internet 
+                        relies on the <strong><abbr title="Three-letter acronym">___</abbr></strong> to translate 
+                        human-friendly domain names (such as <code>www.spsu.edu</code>) into numeric IP addresses. 
+                        <em>(Enter the 3-letter acronym or full name.)</em>
+                    </p>
+                    <label for="q1-input" class="visually-label">Your Answer:</label>
+                    <input type="text" id="q1-input" name="q1" class="text-input" placeholder="e.g., DNS" autocomplete="off">
+                    <div id="q1-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 2: Fill-in-the-blank #2 -->
+                <fieldset class="question-card" id="q2-card">
+                    <legend>Question 2 (Fill in the Blank — 1 Point)</legend>
+                    <p class="question-prompt">
+                        Within a URL, the part placed after the <code>#</code> symbol—also known as an anchor or 
+                        <strong>_______</strong> identifier—acts as a bookmark inside the document and is never 
+                        sent to the web server with the HTTP request.
+                    </p>
+                    <label for="q2-input" class="visually-label">Your Answer:</label>
+                    <input type="text" id="q2-input" name="q2" class="text-input" placeholder="Enter one word (e.g., fragment)" autocomplete="off">
+                    <div id="q2-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 3: Multiple-Choice (Single Correct Answer) #1 -->
+                <fieldset class="question-card" id="q3-card">
+                    <legend>Question 3 (Multiple Choice — 1 Point)</legend>
+                    <p class="question-prompt">
+                        Back in 1989, Tim Berners-Lee established three foundational pillars on which the World Wide 
+                        Web stands. Which of the following is <strong>NOT</strong> one of those three core web pillars?
+                    </p>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="URL">
+                        Uniform Resource Locator (URL), which keeps track of web documents.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="HTTP">
+                        Hypertext Transfer Protocol (HTTP), which transfers documents across the network.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="HTML">
+                        Hypertext Markup Language (HTML), which formats documents with embedded hyperlinks.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="Wireless">
+                        Wireless Wi-Fi Hardware, which transmits radio signals between physical routers.
+                    </label>
+                    <div id="q3-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 4: Multiple-Choice (Single Correct Answer) #2 -->
+                <fieldset class="question-card" id="q4-card">
+                    <legend>Question 4 (Multiple Choice — 1 Point)</legend>
+                    <p class="question-prompt">
+                        While static and dynamic web systems are broadly similar in delivering HTML to a browser, 
+                        how does a <strong>static web server</strong> fulfill an incoming HTTP GET request?
+                    </p>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="disk">
+                        It reads the pre-authored HTML file directly from disk and returns it "as-is" in the HTTP response.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="database">
+                        It executes server-side Python or PHP scripts to query a relational database at run time.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="dns">
+                        It rewrites the client's DNS cache before compiling binary code inside the browser.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="icann">
+                        It contacts ICANN to register a new Top-Level Domain for every page refresh.
+                    </label>
+                    <div id="q4-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 5: Multiple-Choice (Single Correct Answer) #3 -->
+                <fieldset class="question-card" id="q5-card">
+                    <legend>Question 5 (Multiple Choice — 1 Point)</legend>
+                    <p class="question-prompt">
+                        In the URL <code>http://www.spsu.edu:80/aboutus/index.htm?ref=homepage</code>, what is the 
+                        default network port number specified for standard HTTP communication?
+                    </p>
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="21">
+                        Port 21
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="53">
+                        Port 53
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="80">
+                        Port 80
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="800">
+                        Port 800
+                    </label>
+                    <div id="q5-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 6: Multiple-Choice (Single Correct Answer) #4 -->
+                <fieldset class="question-card" id="q6-card">
+                    <legend>Question 6 (Multiple Choice — 1 Point)</legend>
+                    <p class="question-prompt">
+                        Domain names are structured hierarchically from right to left and separated by dots. In the 
+                        university domain <code>spsu.view.usg.edu</code>, which segment represents the 
+                        <strong>Second-Level Domain</strong> directly beneath the <code>.edu</code> Top-Level Domain?
+                    </p>
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="spsu">
+                        <code>spsu</code>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="view">
+                        <code>view</code>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="usg">
+                        <code>usg</code>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="edu">
+                        <code>edu</code>
+                    </label>
+                    <div id="q6-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 7: Multiple-Choice (Single Correct Answer) #5 -->
+                <fieldset class="question-card" id="q7-card">
+                    <legend>Question 7 (Multiple Choice — 1 Point)</legend>
+                    <p class="question-prompt">
+                        When an application server dynamically generates HTML from a database and forwards it through 
+                        the web server to the client, how does the <strong>web browser</strong> treat that returned HTML?
+                    </p>
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="unaware">
+                        The browser is unaware of the server-side generation and renders the HTML in the exact same way as a static file.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="rejects">
+                        The browser rejects the response unless it includes raw SQL database credentials.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="compiles">
+                        The browser must manually compile the server's ASP.NET or PHP source code on the user's hard drive.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="bypasses">
+                        The browser bypasses HTTP entirely and connects directly to the backend database.
+                    </label>
+                    <div id="q7-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 8: Multiple-Choice (Single Correct Answer) #6 -->
+                <fieldset class="question-card" id="q8-card">
+                    <legend>Question 8 (Multiple Choice — 1 Point)</legend>
+                    <p class="question-prompt">
+                        Which two organizations are responsible for managing Top-Level Domains (TLDs) and coordinating 
+                        global IP addressing on the Internet?
+                    </p>
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="ICANN_IANA">
+                        ICANN and IANA
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="HTML_CSS">
+                        HTML5 and CSS3
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="PHP_NET">
+                        PHP and .NET
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="GET_POST">
+                        GET and POST
+                    </label>
+                    <div id="q8-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 9: Multi-Selection (Checkboxes — More than one correct choice) #1 -->
+                <fieldset class="question-card" id="q9-card">
+                    <legend>Question 9 (Multi-Selection — 1 Point: Select ALL Correct Choices)</legend>
+                    <p class="question-prompt">
+                        Dynamic web architecture entails distinct technological provisions compared to simple static 
+                        publishing. Which of the following are valid characteristics of the <strong>Dynamic Web</strong>? 
+                        <em>(Select all three correct statements.)</em>
+                    </p>
+                    <label class="option-label">
+                        <input type="checkbox" name="q9" value="runtime">
+                        Web pages are assembled at run time ("on the fly") rather than authored solely as static files at design time.
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q9" value="sources">
+                        Content is drawn from multiple sources, including databases, XML/JSON files, and executable programs.
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q9" value="interaction">
+                        Users engage in rich interaction—such as typing, choosing, dragging and dropping, and purchasing items.
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q9" value="no_server">
+                        It eliminates the need for an HTTP server or application server altogether.
+                    </label>
+                    <div id="q9-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- QUESTION 10: Multi-Selection (Checkboxes — More than one correct choice) #2 -->
+                <fieldset class="question-card" id="q10-card">
+                    <legend>Question 10 (Multi-Selection — 1 Point: Select ALL Correct Choices)</legend>
+                    <p class="question-prompt">
+                        According to HTTP standards and web architecture specifications, which of the following 
+                        functions can be controlled or facilitated by <strong>HTTP</strong> and intermediary proxies? 
+                        <em>(Select all three correct statements.)</em>
+                    </p>
+                    <label class="option-label">
+                        <input type="checkbox" name="q10" value="caching">
+                        Caching of web documents (in public proxies or private browser caches) to improve performance.
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q10" value="load_balancing">
+                        Load balancing across multiple servers and authentication to control access to resources.
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q10" value="fetching">
+                        Fetching hypertext documents, images, and videos, or posting HTML form results to servers.
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="q10" value="cables">
+                        Manufacturing physical copper ethernet cables and optical fibers between homes.
+                    </label>
+                    <div id="q10-feedback" class="question-feedback"></div>
+                </fieldset>
+
+                <!-- Quiz Control Buttons -->
+                <div class="quiz-actions">
+                    <button type="submit" id="submit-btn" class="btn-primary">Submit Assessment</button>
+                    <button type="button" id="reset-btn" class="btn-secondary">Retake / Reset Quiz</button>
+                </div>
+
+            </form>
+        </main>
+    </div>
+
+    <!-- Required Class Project Footer -->
+    <footer id="site-footer">
+        <p>
+            This website is a class project for 
+            <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203 Intro to Web Development</a> 
+            at Kennesaw State University.
+        </p>
+    </footer>
+
+    <!-- Client-Side JavaScript for Quiz Timer, Grading, Feedback, and Reset -->
+    <script>
+        /* =========================================================================
+           IT 3203 Milestone #2: Dynamic Frontend Quiz Script
+           Handles 10-minute timer, form grading, per-question feedback, and reset.
+           ========================================================================= */
+
+        const TIME_LIMIT_SECONDS = 600; // 10 minutes = 600 seconds
+        let remainingSeconds = TIME_LIMIT_SECONDS;
+        let elapsedSeconds = 0;
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+
+        // DOM Elements
+        const timeDisplay = document.getElementById("time-display");
+        const timerBanner = document.getElementById("timer-banner");
+        const quizForm = document.getElementById("architecture-quiz");
+        const resultsPanel = document.getElementById("quiz-results");
+        const overallSummary = document.getElementById("overall-summary");
+        const questionBreakdown = document.getElementById("question-breakdown");
+        const submitBtn = document.getElementById("submit-btn");
+        const resetBtn = document.getElementById("reset-btn");
+
+        // Format seconds into MM:SS
+        function formatTime(totalSec) {
+            const minutes = Math.floor(totalSec / 60);
+            const seconds = totalSec % 60;
+            const paddedMinutes = String(minutes).padStart(2, "0");
+            const paddedSeconds = String(seconds).padStart(2, "0");
+            return `${paddedMinutes}:${paddedSeconds}`;
+        }
+
+        // Start or restart the 10-minute countdown timer
+        function startTimer() {
+            clearInterval(timerInterval);
+            remainingSeconds = TIME_LIMIT_SECONDS;
+            elapsedSeconds = 0;
+            isQuizSubmitted = false;
+            timeDisplay.textContent = formatTime(remainingSeconds);
+            timerBanner.classList.remove("timer-expired");
+
+            timerInterval = setInterval(function () {
+                if (remainingSeconds > 0) {
+                    remainingSeconds--;
+                    elapsedSeconds++;
+                    timeDisplay.textContent = formatTime(remainingSeconds);
+
+                    // Visual warning when less than 1 minute remains
+                    if (remainingSeconds <= 60) {
+                        timerBanner.classList.add("timer-expired");
+                    }
+                } else {
+                    // Time expired: stop timer and auto-grade quiz
+                    clearInterval(timerInterval);
+                    gradeQuiz(true);
+                }
+            }, 1000);
+        }
+
+        // Helper to evaluate checkbox multi-selection questions
+        function checkMultiSelect(questionName, expectedValues) {
+            const checkedBoxes = Array.from(
+                document.querySelectorAll(`input[name="${questionName}"]:checked`)
+            ).map(cb => cb.value);
+
+            const isExactMatch =
+                checkedBoxes.length === expectedValues.length &&
+                expectedValues.every(val => checkedBoxes.includes(val));
+
+            return {
+                isCorrect: isExactMatch,
+                userResponse: checkedBoxes.length > 0 ? checkedBoxes.join(", ") : "No options selected"
+            };
+        }
+
+        // Grade the quiz and display overall & per-question results
+        function gradeQuiz(autoSubmittedByTimer = false) {
+            if (isQuizSubmitted) return;
+            isQuizSubmitted = true;
+            clearInterval(timerInterval);
+
+            let totalScore = 0;
+            const totalQuestions = 10;
+            const detailedResults = [];
+
+            // 1. Evaluate Q1 (Fill-in-the-blank: DNS or Domain Name System)
+            const q1Raw = document.getElementById("q1-input").value.trim();
+            const q1Norm = q1Raw.toLowerCase();
+            const q1Correct = (q1Norm === "dns" || q1Norm === "domain name system");
+            if (q1Correct) totalScore++;
+            detailedResults.push({
+                num: 1,
+                score: q1Correct ? 1 : 0,
+                isCorrect: q1Correct,
+                userAnswer: q1Raw || "(Blank)",
+                correctAnswer: "DNS (Domain Name System)"
+            });
+
+            // 2. Evaluate Q2 (Fill-in-the-blank: fragment)
+            const q2Raw = document.getElementById("q2-input").value.trim();
+            const q2Norm = q2Raw.toLowerCase().replace("#", "");
+            const q2Correct = (q2Norm === "fragment" || q2Norm === "fragment identifier");
+            if (q2Correct) totalScore++;
+            detailedResults.push({
+                num: 2,
+                score: q2Correct ? 1 : 0,
+                isCorrect: q2Correct,
+                userAnswer: q2Raw || "(Blank)",
+                correctAnswer: "fragment (fragment identifier)"
+            });
+
+            // 3. Evaluate Q3–Q8 (Single-choice Multiple Choice)
+            const mcKey = [
+                { num: 3, name: "q3", correctVal: "Wireless", correctText: "Wireless Wi-Fi Hardware (URL, HTTP, and HTML are the three web pillars)" },
+                { num: 4, name: "q4", correctVal: "disk", correctText: "Reads the pre-authored HTML file directly from disk and returns it 'as-is'" },
+                { num: 5, name: "q5", correctVal: "80", correctText: "Port 80" },
+                { num: 6, name: "q6", correctVal: "usg", correctText: "usg (Directly to the left of the .edu Top-Level Domain)" },
+                { num: 7, name: "q7", correctVal: "unaware", correctText: "The browser is unaware of server-side generation and renders it like a static file" },
+                { num: 8, name: "q8", correctVal: "ICANN_IANA", correctText: "ICANN and IANA" }
+            ];
+
+            mcKey.forEach(item => {
+                const selected = document.querySelector(`input[name="${item.name}"]:checked`);
+                const userVal = selected ? selected.value : null;
+                const isCorrect = (userVal === item.correctVal);
+                if (isCorrect) totalScore++;
+                detailedResults.push({
+                    num: item.num,
+                    score: isCorrect ? 1 : 0,
+                    isCorrect: isCorrect,
+                    userAnswer: userVal ? selected.parentElement.textContent.trim() : "No choice selected",
+                    correctAnswer: item.correctText
+                });
+            });
+
+            // 4. Evaluate Q9 (Multi-Selection Checkboxes)
+            const q9Eval = checkMultiSelect("q9", ["runtime", "sources", "interaction"]);
+            if (q9Eval.isCorrect) totalScore++;
+            detailedResults.push({
+                num: 9,
+                score: q9Eval.isCorrect ? 1 : 0,
+                isCorrect: q9Eval.isCorrect,
+                userAnswer: q9Eval.userResponse,
+                correctAnswer: "Assembled at run time, Multiple content sources (databases/XML/JSON), and Rich user interaction"
+            });
+
+            // 5. Evaluate Q10 (Multi-Selection Checkboxes)
+            const q10Eval = checkMultiSelect("q10", ["caching", "load_balancing", "fetching"]);
+            if (q10Eval.isCorrect) totalScore++;
+            detailedResults.push({
+                num: 10,
+                score: q10Eval.isCorrect ? 1 : 0,
+                isCorrect: q10Eval.isCorrect,
+                userAnswer: q10Eval.userResponse,
+                correctAnswer: "Caching of documents, Load balancing & authentication, and Fetching documents/posting forms"
+            });
+
+            // Calculate percentage and Pass/Fail status (70% threshold)
+            const percentage = Math.round((totalScore / totalQuestions) * 100);
+            const passed = percentage >= 70;
+            const minutesSpent = Math.floor(elapsedSeconds / 60);
+            const secondsSpent = elapsedSeconds % 60;
+            const formattedTimeSpent = `${minutesSpent}m ${secondsSpent}s`;
+
+            // Render Overall Summary Banner
+            overallSummary.className = passed ? "summary-banner status-pass" : "summary-banner status-fail";
+            overallSummary.innerHTML = `
+                <p class="result-headline">
+                    <strong>Overall Result:</strong> 
+                    <span class="${passed ? "text-pass" : "text-fail"}">
+                        ${passed ? "PASS (Competency Demonstrated)" : "FAIL (Review Recommended)"}
+                    </span>
+                </p>
+                ${autoSubmittedByTimer ? "<p class='text-fail'><strong>Notice:</strong> The 10-minute time limit expired; your quiz was submitted automatically.</p>" : ""}
+                <p><strong>Total Score:</strong> ${totalScore} / ${totalQuestions} (${percentage}%)</p>
+                <p><strong>Time Spent on Quiz:</strong> ${formattedTimeSpent}</p>
+            `;
+
+            // Render Per-Question Breakdown & Inline Card Feedback
+            let breakdownHTML = "";
+            detailedResults.forEach(res => {
+                const statusClass = res.isCorrect ? "result-correct" : "result-incorrect";
+                const statusLabel = res.isCorrect ? "Correct" : "Incorrect";
+
+                // Update inline feedback box inside each question card
+                const feedbackDiv = document.getElementById(`q${res.num}-feedback`);
+                feedbackDiv.className = `question-feedback ${statusClass}`;
+                feedbackDiv.innerHTML = `
+                    <strong>Result: ${statusLabel} (${res.score}/1 pt)</strong><br>
+                    <span><strong>Correct Answer:</strong> ${res.correctAnswer}</span>
+                `;
+
+                // Append to top summary breakdown list
+                breakdownHTML += `
+                    <div class="breakdown-item ${statusClass}">
+                        <p>
+                            <strong>Question ${res.num}:</strong> 
+                            <span class="badge">${statusLabel} (${res.score} / 1 pt)</span>
+                        </p>
+                        <p><strong>Your Answer:</strong> ${res.userAnswer}</p>
+                        <p><strong>Correct Answer:</strong> ${res.correctAnswer}</p>
+                    </div>
+                `;
+            });
+
+            questionBreakdown.innerHTML = breakdownHTML;
+            resultsPanel.classList.remove("hidden");
+            submitBtn.disabled = true;
+
+            // Scroll smoothly to results panel at top of quiz
+            resultsPanel.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Handle Form Submission
+        quizForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            gradeQuiz(false);
+        });
+
+        // Handle Quiz Reset / Retake Button
+        resetBtn.addEventListener("click", function () {
+            quizForm.reset();
+            resultsPanel.classList.add("hidden");
+            overallSummary.innerHTML = "";
+            questionBreakdown.innerHTML = "";
+            submitBtn.disabled = false;
+
+            // Clear all individual question feedback boxes
+            for (let i = 1; i <= 10; i++) {
+                const fb = document.getElementById(`q${i}-feedback`);
+                if (fb) {
+                    fb.className = "question-feedback";
+                    fb.innerHTML = "";
+                }
+            }
+
+            // Restart the 10-minute timer and scroll back to top
+            startTimer();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Initialize timer when page loads
+        window.addEventListener("DOMContentLoaded", startTimer);
+    </script>
+</body>
+</html>
