@@ -1,107 +1,342 @@
-/*IT 3203 Milestone #1 Stylesheet*/
 
-/* 1. ELEMENT SELECTORS (Font settings, coloring, margins/paddings) */
+
+/* Element Selectors */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     color: #222222;
-    background-color: #f4f6f8;
+    background-color: #f4f6f9;
     margin: 0;
     padding: 0;
 }
 
 h1, h2, h3 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #003366;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
 }
 
-/* Table styling with borders and padding */
+p, li {
+    margin-bottom: 0.75em;
+}
+
+a {
+    color: #003366;
+    text-decoration: underline;
+}
+
+/* Required Link Hover Effect */
+a:hover {
+    color: #b37400;
+    text-decoration: none;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+    background-color: #eef2f7;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
+    background-color: #ffffff;
 }
 
 th, td {
-    border: 1px solid #cccccc;
-    padding: 10px;
+    border: 1px solid #cbd5e1;
+    padding: 10px 12px;
     text-align: left;
 }
 
 th {
-    background-color: #e6eef4;
+    background-color: #003366;
+    color: #ffffff;
+    font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
-/* 2. ID SELECTORS (Header and Footer sections) */
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* ID Selectors */
 #site-header {
     background-color: #003366;
     color: #ffffff;
-    padding: 20px;
+    padding: 20px 15px 0 15px;
+    border-bottom: 4px solid #f0b323;
     text-align: center;
-    border-bottom: 4px solid #f0b323; /* KSU Gold accent border */
 }
 
 #site-header h1 {
     color: #ffffff;
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
+    font-size: 1.85rem;
 }
 
 #site-footer {
-    background-color: #222222;
+    background-color: #002244;
     color: #ffffff;
     text-align: center;
-    padding: 15px;
+    padding: 16px;
     margin-top: 40px;
-    font-size: 14px;
+    border-top: 3px solid #f0b323;
+    font-size: 0.95rem;
 }
 
 #site-footer a {
     color: #f0b323;
-}
-
-/* 3. CLASS SELECTORS & FLEXBOX LAYOUT */
-/* Flexbox navigation menu */
-.nav-menu {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    flex-wrap: wrap;
-}
-
-.nav-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 14px;
-    border: 1px solid transparent;
-    border-radius: 4px;
     font-weight: bold;
 }
 
-/* Required hover effect on links */
-.nav-menu a:hover,
-.content-box a:hover {
-    background-color: #f0b323;
-    color: #003366;
-    border-color: #ffffff;
+#site-footer a:hover {
+    color: #ffffff;
 }
 
-/* Flexbox main page layout container */
+/* Class Selectors & Flexbox Layout */
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #002855;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #f0b323;
+    color: #002244;
+}
+
 .page-container {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 28px 16px;
 }
 
-/* Main content box with border, padding, and margin */
 .content-box {
     background-color: #ffffff;
     max-width: 900px;
     width: 100%;
-    padding: 30px;
-    margin: 10px;
-    border: 1px solid #dddddd;
+    padding: 32px 36px;
+    border: 1px solid #d8e0e8;
     border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   Milestone #2: Dynamic Quiz Form & Diagnostic Result Styles
+   ========================================================================== */
+
+.timer-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eef4fb;
+    border: 2px solid #003366;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 20px 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 1.05rem;
+}
+
+.timer-expired {
+    background-color: #fef2f2;
+    border-color: #dc2626;
+    color: #991b1b;
+}
+
+.question-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+    background-color: #fafbfc;
+}
+
+.question-card legend {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-weight: 700;
+    color: #003366;
+    padding: 0 8px;
+    font-size: 1.05rem;
+}
+
+.question-prompt {
+    margin-top: 6px;
+    margin-bottom: 14px;
+}
+
+.visually-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.text-input {
+    width: 100%;
+    max-width: 420px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #94a3b8;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: #003366;
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.15);
+}
+
+.option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.option-label:hover {
+    background-color: #eef2f7;
+}
+
+.option-label input[type="radio"],
+.option-label input[type="checkbox"] {
+    margin-top: 5px;
+    transform: scale(1.15);
+}
+
+.quiz-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.btn-primary,
+.btn-secondary {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #003366;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #002244;
+}
+
+.btn-primary:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #f0b323;
+    color: #002244;
+}
+
+.btn-secondary:hover {
+    background-color: #d99f18;
+}
+
+/* Color-Coded Results & Feedback Styling */
+.hidden {
+    display: none;
+}
+
+.results-panel {
+    border: 2px solid #003366;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    background-color: #ffffff;
+}
+
+.summary-banner {
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.status-pass {
+    background-color: #ecfdf5;
+    border: 2px solid #16a34a;
+    color: #065f46;
+}
+
+.status-fail {
+    background-color: #fef2f2;
+    border: 2px solid #dc2626;
+    color: #991b1b;
+}
+
+.text-pass {
+    color: #15803d;
+    font-weight: 700;
+}
+
+.text-fail {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+.result-headline {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.breakdown-item,
+.question-feedback {
+    padding: 12px 16px;
+    border-radius: 5px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+}
+
+.result-correct {
+    background-color: #f0fdf4;
+    border-left: 5px solid #16a34a;
+    color: #14532d;
+}
+
+.result-incorrect {
+    background-color: #fef2f2;
+    border-left: 5px solid #dc2626;
+    color: #7f1d1d;
 }
