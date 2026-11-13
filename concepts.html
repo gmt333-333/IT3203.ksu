@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Consistent Main Menu -->
+    <!-- Consistent Main Menu including Milestone #2 Quiz Page -->
     <header id="site-header">
         <h1>Browsers, Servers, and Web Architecture</h1>
         <nav>
@@ -19,6 +19,7 @@
                 <li><a href="architecture.html">Request Architecture</a></li>
                 <li><a href="concepts.html">Key Concepts</a></li>
                 <li><a href="references.html">References</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
@@ -26,67 +27,61 @@
 
     <div class="page-container">
         <main class="content-box">
-            <h2>Core Web Networking &amp; Browser Concepts</h2>
+            <h2>Core Networking &amp; Browser Concepts</h2>
             <p>
-                Gaining insight into the environment in which a web application runs requires examining six 
-                foundational concepts that govern how computers connect, locate resources, and display web pages.
+                Networking protocols and document addressing schemes stand as foundational mechanisms of the 
+                Internet, each providing the framework and limits of digital communication. While they are broadly 
+                similar in that each facilitates the movement of data between a client browser and a remote server, 
+                the specific functions, structures, and levels of complexity they share further contrast with one 
+                another. Gaining insight into these core concepts will help explain how each mechanism reflects the 
+                technical needs it was designed to meet.
             </p>
 
-            <h3>1. Computer Networks, Routers, and TCP/IP</h3>
+            <h3>1. Domain Name System (DNS) and IPv4 Addressing</h3>
             <p>
-                For two computers to exchange information across a network, they require both a physical or wireless 
-                link and a commonly understood protocol. On the Internet, the Transmission Control Protocol / Internet 
-                Protocol (TCP/IP) enables computers to exchange data packets and control acknowledgements so that 
-                information is transmitted reliably. Between a home computer and a web server, specialist computing 
-                devices called routers act like network traffic directors, handing data from one router to the next 
-                across commercial, educational, and government backbone networks until it reaches its destination.
+                IPv4 addresses and domain names both provide unique identifiers for devices connected to the 
+                Internet so that backbone routers know where to forward packets. However, the points of divergence 
+                between the two are striking. An IPv4 address is a numeric four-byte identifier written in dotted 
+                decimal notation (such as <code>168.28.176.243</code>), which is ideal for machine routing but 
+                intentionally difficult for citizens to memorize. By contrast, the Domain Name System (DNS) is 
+                decidedly more accessible: it translates human-friendly domain names (such as <code>www.spsu.edu</code>) 
+                into numeric IP addresses. Top-level domains (TLDs) such as <code>.com</code>, <code>.org</code>, 
+                <code>.gov</code>, and <code>.edu</code> stand at the highest level on the right of a domain and 
+                are managed globally by ICANN and IANA.
             </p>
 
-            <h3>2. IP Addresses and the Domain Name System (DNS)</h3>
+            <h3>2. Uniform Resource Locator (URL) Components &amp; Variations</h3>
             <p>
-                Every device connected directly to the Internet requires a unique four-byte numerical identifier 
-                known as an Internet Protocol (IP) address, written in dotted decimal notation. Because numerical 
-                addresses are difficult for people to memorize, the Domain Name System (DNS) serves as a hierarchical, 
-                decentralized naming system that translates human-friendly domain names into numerical IP addresses, 
-                starting from root nameservers.
+                A Uniform Resource Locator (URL) is used to locate a particular resource on a web server. Much like 
+                a postal address, a URL establishes a balance of parts: the protocol scheme (such as <code>http</code> 
+                or <code>https</code>), the host domain name, the network port (defaulting to port <code>80</code> 
+                for HTTP), and the file path. Even greater differences appear in optional URL extensions. Query 
+                parameters added after a <code>?</code> symbol pass key-value pairs to the web server so that 
+                dynamic processing can take place before returning the resource. By contrast, an anchor or fragment 
+                identifier placed after a <code>#</code> symbol points to a bookmark inside the current document 
+                and is never sent to the server with the request.
             </p>
 
-            <h3>3. Domain Hierarchy and Top-Level Domains (TLDs)</h3>
+            <h3>3. Hypertext Transfer Protocol (HTTP and HTTP/2)</h3>
             <p>
-                A domain name is structured to tell users the general purpose of the service behind the address. 
-                While generic Top-Level Domains (TLDs) such as <code>.com</code>, <code>.org</code>, and 
-                <code>.net</code> do not enforce strict eligibility criteria, specialized TLDs maintain stricter 
-                policies: local TLDs like <code>.us</code> or <code>.fr</code> indicate a specific country or 
-                language, <code>.gov</code> is restricted to government departments, and <code>.edu</code> is 
-                reserved exclusively for educational and academic institutions.
+                HTTP stands as the feature application-layer communication protocol of the Web, typically running 
+                on top of TCP/IP. Clients and servers communicate by exchanging individual messages: the messages 
+                sent by the client browser are called <em>requests</em> (such as an HTTP <code>GET</code> request), 
+                and the messages returned by the server are called <em>responses</em> (such as <code>200 OK</code>). 
+                Although HTTP/2 introduces greater complexity by encapsulating messages into binary frames for 
+                multiplexed performance, the foundational request-response structure has remained virtually unchanged 
+                since HTTP/1.0, balancing continuity with performance improvements.
             </p>
 
-            <h3>4. Uniform Resource Locators (URLs) and Hyperlinks</h3>
+            <h3>4. Client-Side Scripting vs. Server-Side Execution</h3>
             <p>
-                A Uniform Resource Locator (URL) functions much like a postal mail address for the Web: the scheme 
-                (such as <code>https</code>) represents the postal service protocol, the domain name identifies the 
-                city or server location, the port acts like a zip code, the path specifies the building or file on 
-                the server, and an anchor points to a specific section inside a document. Embedded hyperlinks tie 
-                these URLs together, allowing users to navigate between pages and enabling search engines to crawl 
-                and index the Web.
-            </p>
-
-            <h3>5. Hypertext Transfer Protocol (HTTP &amp; HTTPS)</h3>
-            <p>
-                Sitting on top of TCP/IP, HTTP is the human-readable application protocol that browsers and web 
-                servers use to talk to one another. Browsers use HTTP verbs such as <code>GET</code> to request a 
-                web page and <code>POST</code> to submit form data for processing, while the protocol also supports 
-                caching, filtering, load balancing, authentication, and logging. On the modern Web, servers rely on 
-                HTTPS, the secure version of HTTP that protects data in transit from interception.
-            </p>
-
-            <h3>6. Hypertext Markup Language (HTML) and Rendering</h3>
-            <p>
-                Inside the payload of an HTTP response sits HTML, a text-based markup language that uses nested 
-                angle-bracket tags and attributes (such as <code>src</code>, <code>height</code>, and 
-                <code>width</code> for images) to describe the structure of a document. When the browser receives 
-                an HTML file, it reads the markup instructions and converts the description into a visual screen 
-                display through a process called rendering.
+                Dynamic frontend scripting and backend server programming both enrich the modern web beyond static 
+                text, yet their execution environments contrast sharply. Server-side languages (such as PHP, Java, 
+                .NET, and Python) execute on the application server to query databases and assemble HTML before 
+                transmission. By contrast, client-side JavaScript executes directly inside the user's browser 
+                after the page has loaded. Dealing with quotidian interface matters—such as validating quiz forms, 
+                tracking countdown timers, and updating Document Object Model (DOM) elements without a full page 
+                reload—client-side scripting makes the user directly part of the shaping of the page experience.
             </p>
         </main>
     </div>
